@@ -4,13 +4,13 @@ Rails.application.routes.draw do
     resources :companies
   end
 
-  resources :companies, :only => [:index] do
+  resources :companies, :only => [:index, :show] do
     resources :projects, :only => [:index, :show]
   end
 
   get 'ranking' => 'companies#ranking'
 
-  get 'like_count' => 'projects#like_count'
+  post 'like_count' => 'projects#like_count'
 
 
 
